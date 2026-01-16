@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Your profile</title>
+  </head>
+  <body>
+    <h1>Welcome</h1>
+    {% for book in books %}
+    <div>
+      <h2>{{ book.title }}</h2>
+      <button
+        type="button"
+        href="https://archive.org/details/collectorssticke0000scho"
+      >
+        Download
+      </button>
+      <p>Author: {{ book.author }}</p>
+      <p>Year: {{ book.year }}</p>
+      <p>ISBN: {{ book.isbn }}</p>
+    </div>
+    {% endfor %}
+  </body>
+</html>
