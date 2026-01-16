@@ -1,4 +1,4 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="en">
   <head>
     <meta charset="UTF-8" />
@@ -7,15 +7,31 @@
     <link rel="stylesheet" href="static/main.css" />
   </head>
   <body>
-    <h1>Welcome</h1>
+    <section class="Welcome-Bar">
+      <h1>Welcome</h1>
+      <button class="post-button" onclick="window.location.href = '/Publish'">
+        Post
+      </button>
+    </section>
     <section class="books-catalogue">
       {% for book in books %}
       <section class="book-section">
         <div class="book-card">
           <h2>{{ book.title }}</h2>
+          <img
+            src="{{ book.image }}"
+            alt="Cover image of {{ book.title }}"
+            class="book-cover"
+          />
+          <button
+            class="Download-Button"
+            onclick="window.location.href='{{ book.download_link }}'"
+          >
+            Download
+          </button>
           <p>Author: {{ book.author }}</p>
           <p>Year: {{ book.year }}</p>
-          <p>ISBN: {{ book.isbn }}</p>
+          <p class="isbn-credential">ISBN: {{ book.isbn }}</p>
         </div>
       </section>
       {% endfor %}

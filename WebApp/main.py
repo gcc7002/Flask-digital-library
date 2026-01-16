@@ -19,7 +19,7 @@ class book(db.Model):
     year = db.Column(db.Integer, nullable=False)
     isbn = db.Column(db.String(20), unique=True, nullable=False)
     download_link = db.Column(db.String(300), nullable=False)
-    image_link = db.Column(db.String(300), nullable=False)
+    image = db.Column(db.String(300), nullable=False)
 
 
 @app.route('/')
@@ -54,6 +54,20 @@ def login():
 def area():
     return render_template("main.html", users = [user.username for user in User.query.all()], books = book.query.all())
 
+@app.route("/Publish", methods=['GET', 'POST'])
+def publish():
+    if request.method == "POST":
+        title = request.form.get('title')
+        author = request.form.get('author')
+        year = request.form.get('year')
+        isbn = request.form.get('isbn')
+        download_link = request.form.get('download_link')
+        image = request.form.get('image')
+        new_book = book(title=title, author=author, year=year, isbn=isbn, download_link=download_link, image=image)
+        db.session.add(new_book)
+        db.session.commit()
+        return redirect(url_for('area'))
+    return render_template("publish.html")
 
 if __name__ == "__main__":
     with app.app_context():
