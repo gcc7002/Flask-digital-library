@@ -1,17 +1,28 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="en">
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>home</title>
+    <title>Book Catalogue</title>
     <link rel="stylesheet" href="static/home.css" />
   </head>
   <body>
     <div class="Intro">
-      <h1 class="Title">Welcome to the Home Page</h1>
-      <button class="login_button" onclick="location.href='/Login'">
-        Login
-      </button>
+      <div class="Intro-Content">
+        <h1 class="Title">Your Digital Book Catalogue</h1>
+        <p class="Subtitle">
+          Discover, organize and download books in one simple platform.
+        </p>
+
+        <div class="Buttons">
+          <button class="login_button" onclick="location.href = '/Login'">
+            Login
+          </button>
+          <button class="register_button" onclick="location.href = '/Register'">
+            Register
+          </button>
+        </div>
+      </div>
     </div>
   </body>
 </html>
