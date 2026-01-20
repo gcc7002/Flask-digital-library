@@ -23,12 +23,21 @@
             alt="Cover image of {{ book.title }}"
             class="book-cover"
           />
-          <button
-            class="Download-Button"
-            onclick="window.location.href='{{ book.download_link }}'"
-          >
-            Download
-          </button>
+          <span>
+            <button
+              class="Download-Button"
+              onclick="window.location.href='{{ book.download_link }}'"
+            >
+              Download
+            </button>
+            <button
+              class="Delete_Button"
+              onclick="window.location.href='/deletebook/{{ book.id }}'"
+            >
+              Delete
+            </button>
+          </span>
+
           <p>Author: {{ book.author }}</p>
           <p>Year: {{ book.year }}</p>
           <p class="isbn-credential">ISBN: {{ book.isbn }}</p>

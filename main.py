@@ -69,7 +69,14 @@ def publish():
         return redirect(url_for('area'))
     return render_template("publish.html")
 
+@app.route("/deletebook/<int:book_id>", methods=['GET'])
+def delete_book(book_id):
+    book_to_delete = book.query.get_or_404(book_id)
+    db.session.delete(book_to_delete)
+    db.session.commit()
+    return redirect(url_for('area'))
+
 if __name__ == "__main__":
     with app.app_context():
         db.create_all()
-    app.run(host="0.0.0.0", port=5000)
+    app.run(host="0.0.0.0", port=5000, debug=True)

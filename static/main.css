@@ -74,6 +74,23 @@ body {
   transition: 0.2s ease;
 }
 
+.Delete_Button {
+  background-color: #ba0000;
+  border: none;
+  color: white;
+  padding: 10px 20px;
+  text-align: center;
+  font-size: 15px;
+  cursor: pointer;
+  border-radius: 6px;
+  margin-top: auto;
+  transition: 0.2s ease;
+}
+
+.Delete_Button:hover {
+  background-color: #e64545;
+  transform: scale(1.03);
+}
 .post-button {
   background-color: #00ba19;
 }
